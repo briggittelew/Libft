@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/09 16:30:42 by karlewis          #+#    #+#             */
-/*   Updated: 2022/12/12 15:26:49 by karlewis         ###   ########.fr       */
+/*   Created: 2022/12/12 16:12:45 by karlewis          #+#    #+#             */
+/*   Updated: 2022/12/12 16:49:56 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
+char	strnstr(const char *str, const char *substr)
 {
 	size_t			i;
-	unsigned char	*_str;
-	unsigned char	_char;
+	size_t			j;
+	size_t	concur;
+	size_t	length;
+	//unsigned char	_str;
+	//unsigned char	_substr;
 
-	_str = (unsigned char *)str;
-	_char = (unsigned char)c;
+	//_str = (unsigned char)str;
+	//_substr = (unsigned char)substr;
+	
+	length = ft_strlen(substr);
+	if (*substr == '\0')
+		return (*substr);
 	i = 0;
-	while (i < n)
+	while (*str != '\0' && concur <= )
 	{
-		if (*_str == _char)
-			return (_str);
-		_str++;
-		i++;
+		while (*substr == *str && *substr != '\0')
+		{
+			str++;
+			substr++;
+		}
+		
 	}
-	return (NULL);
+	
 }
