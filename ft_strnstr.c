@@ -12,30 +12,27 @@
 
 #include "libft.h"
 
-char	strnstr(const char *str, const char *substr)
+char	*ft_strnstr(const char *str, const char *substr, size_t n)
 {
-	size_t			i;
-	size_t			j;
-	size_t	concur;
-	size_t	length;
-	//unsigned char	_str;
-	//unsigned char	_substr;
+	size_t	i;
+	size_t	nc;
+	size_t	n_substr;
+	char	*_str;
 
-	//_str = (unsigned char)str;
-	//_substr = (unsigned char)substr;
-	
-	length = ft_strlen(substr);
-	if (*substr == '\0')
-		return (*substr);
 	i = 0;
-	while (*str != '\0' && concur <= )
+	_str = (char *)str;
+	n_substr = ft_strlen(substr);
+	if (n_substr == 0 || str == substr)
+		return (_str);
+	while (_str[i] != '\0' && i < n)
 	{
-		while (*substr == *str && *substr != '\0')
-		{
-			str++;
-			substr++;
-		}
-		
+		nc = 0;
+		while (_str[i + nc] != '\0' && substr[nc] != '\0'
+				&& _str[i + nc] == substr[nc] && i + nc < n)
+			nc++;
+		if (nc == n_substr)
+			return (_str + i);
+		i++;
 	}
-	
+	return (0);
 }
