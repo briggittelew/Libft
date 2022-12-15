@@ -1,38 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 16:12:45 by karlewis          #+#    #+#             */
-/*   Updated: 2022/12/15 16:11:31 by karlewis         ###   ########.fr       */
+/*   Created: 2022/12/15 16:27:35 by karlewis          #+#    #+#             */
+/*   Updated: 2022/12/15 18:01:10 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *str, const char *substr, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
-	size_t	nc;
-	size_t	n_substr;
-	char	*_str;
+	unsigned int	i;
+	int				negative;
+	int				nbr;
 
 	i = 0;
-	_str = (char *)str;
-	n_substr = ft_strlen(substr);
-	if (n_substr == 0 || str == substr)
-		return (_str);
-	while (_str[i] != '\0' && i < n)
+	negative = 1;
+	nbr = 0;
+	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		nc = 0;
-		while (_str[i + nc] != '\0' && substr[nc] != '\0'
-			&& _str[i + nc] == substr[nc] && i + nc < n)
-			nc++;
-		if (nc == n_substr)
-			return (_str + i);
+		if (str[i + 1] == '+' || str[i + 1] == '-')
+			return (0);
+		if (str[i] == '-')
+			negative = negative * -1;
 		i++;
 	}
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nbr = (str[i] - '0') + (nbr * 10);
+		i++;
+	}
+	return (nbr * negative);
 }
