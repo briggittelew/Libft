@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 12:58:14 by karlewis          #+#    #+#             */
-/*   Updated: 2022/12/15 18:25:07 by karlewis         ###   ########.fr       */
+/*   Created: 2022/12/16 15:10:18 by karlewis          #+#    #+#             */
+/*   Updated: 2022/12/16 16:38:02 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n_bytes)
+char	*ft_substr(char const *str, unsigned int start, size_t len)
 {
-	size_t		i;
+	char		*sub_str;
+	const char	*c;
 
-	i = 0;
-	if (n_bytes == 0)
-	{
-		while (src[i])
-			i++;
-		return (i);
-	}
-	while (i < n_bytes - 1 && src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	if (i < n_bytes)
-		dest[i] = '\0';
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	if (start > ft_strlen(str) || str == NULL)
+		return (ft_strdup(""));
+	if (ft_strlen(str) < len)
+		len = ft_strlen(str) + 1;
+	else
+		len++;
+	sub_str = malloc(sizeof(char) * len);
+	if (!sub_str)
+		return (0);
+	c = (char *)str + start;
+	ft_strlcpy(sub_str, c, len);
+	return (sub_str);
 }

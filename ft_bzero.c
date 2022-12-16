@@ -6,13 +6,13 @@
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 12:57:04 by karlewis          #+#    #+#             */
-/*   Updated: 2022/12/06 15:39:18 by karlewis         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:19:59 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+void	ft_bzero(void *str, size_t n_bytes)
 {
-	ft_memset(str, '\0', n);
+	ft_memset(str, '\0', n_bytes);
 }
