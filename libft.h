@@ -6,7 +6,7 @@
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:47:08 by karlewis          #+#    #+#             */
-/*   Updated: 2022/12/09 16:29:38 by karlewis         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:42:24 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <string.h>
+# include <stdlib.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -34,4 +35,16 @@ char	*ft_strchr(const char *str, int c);
 char	*ft_strrchr(const char *str, int c);
 int		ft_strncmp(const char *str1, const char *str2, size_t n);
 void	*ft_memchr(const void *str, int c, size_t n);
+int		ft_memcmp(const void *str1, const void *str2, size_t n);
+char	*ft_strnstr(const char *str, const char *substr, size_t n);
+int		ft_atoi(const char *str);
+void	*ft_calloc(size_t n_elem, size_t elem_size);
+char	*ft_strdup(const char *str);
+char	*ft_substr(char const *str, unsigned int start, size_t len);
+char	*ft_strjoin(char const *str1, char const *str2);
+char	*ft_strcpy(char *dest, char *src);
+char	*ft_strcat(char *dest, char *src);
+char	*ft_strstr(char *str, char *to_find);
+char	*ft_strtrim(char const *s1, char const *set);
+char	**ft_split(char const *s, char c);
 #endif

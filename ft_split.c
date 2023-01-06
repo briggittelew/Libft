@@ -1,27 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/19 12:14:59 by karlewis          #+#    #+#             */
-/*   Updated: 2023/01/06 15:06:01 by karlewis         ###   ########.fr       */
+/*   Created: 2023/01/06 15:05:53 by karlewis          #+#    #+#             */
+/*   Updated: 2023/01/06 17:42:12 by karlewis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	**ft_split(char const *s, char c)
 {
-	size_t	i;
+	char *sarr;
+	char **arr;
 
-	if (!s1 || !set)
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	i = 0;
+	k = 0;
+	if (!s || !c)
 		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	i = ft_strlen(s1);
-	while (i && ft_strrchr(set, s1[i]))
-		i--;
-	return (ft_substr(s1, 0, i + 1));
+	while (s[i])
+	{
+		j = 0;
+		arr = (char **)malloc(sizeof(char *) * (ft_strlen(s) + 1));
+		sarr = malloc(sizeof(char) * ft_strlen(s));
+		while (s[i] != c && i < ft_strlen(s))
+			sarr[j++] = s[i++];
+		sarr[j++] = '\0';
+		printf("%s\n", sarr);
+		i++;
+		*arr = sarr;
+		arr++;
+	}
+	k = 0;
+	return (&*arr);
 }

@@ -6,7 +6,7 @@
 #    By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 14:33:16 by karlewis          #+#    #+#              #
-#    Updated: 2022/12/09 17:32:26 by karlewis         ###   ########.fr        #
+#    Updated: 2023/01/06 17:42:38 by karlewis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,19 @@ UTILS = ft_isalpha.c\
 		ft_strchr.c\
 		ft_strrchr.c\
 		ft_strncmp.c\
-		ft_memchr.c
+		ft_memchr.c\
+		ft_memcmp.c\
+		ft_strnstr.c\
+		ft_atoi.c\
+		ft_calloc.c\
+		ft_strdup.c\
+		ft_substr.c\
+		ft_strjoin.c\
+		ft_strcpy.c\
+		ft_strcat.c\
+		ft_strstr.c\
+		ft_strtrim.c\
+		ft_split.c
 
 INCLUDE = libft.h
 OBJS = $(UTILS:.c=.o)
