@@ -42,7 +42,8 @@ UTILS = ft_isalpha.c\
 		ft_strcat.c\
 		ft_strstr.c\
 		ft_strtrim.c\
-		ft_split.c
+		ft_split.c\
+		ft_atoi.c
 
 INCLUDE = libft.h
 OBJS = $(UTILS:.c=.o)

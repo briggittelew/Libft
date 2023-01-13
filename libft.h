@@ -47,4 +47,5 @@ char	*ft_strcat(char *dest, char *src);
 char	*ft_strstr(char *str, char *to_find);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
 #endif

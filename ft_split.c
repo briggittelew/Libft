@@ -14,29 +14,35 @@
 
 char	**ft_split(char const *s, char c)
 {
-	char *sarr;
-	char **arr;
-
+	char	*sarr;
+	char	**arr;
 	size_t	i;
 	size_t	j;
-	size_t	k;
+
 	i = 0;
-	k = 0;
 	if (!s || !c)
 		return (NULL);
 	while (s[i])
 	{
 		j = 0;
-		arr = (char **)malloc(sizeof(char *) * (ft_strlen(s) + 1));
-		sarr = malloc(sizeof(char) * ft_strlen(s));
+		sarr = malloc(sizeof(char) * (ft_strlen(s) + 1));
+		arr = &sarr;
 		while (s[i] != c && i < ft_strlen(s))
 			sarr[j++] = s[i++];
 		sarr[j++] = '\0';
-		printf("%s\n", sarr);
+		//printf("%s\n", sarr);
 		i++;
 		*arr = sarr;
 		arr++;
 	}
-	k = 0;
 	return (&*arr);
 }
+
+/**
+int main (void){
+	char *s = "lorem ipsum dolor sit amet, consectetur";
+	char c = ' ';
+
+	printf("%s", ft_split(s, c));
+	return (0);
+}*/
