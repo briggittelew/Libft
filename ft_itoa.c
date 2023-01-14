@@ -1,45 +1,61 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/13 17:52:07 by karlewis          #+#    #+#             */
+/*   Updated: 2023/01/14 14:00:54 by karlewis         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char *ft_itoa(int n)
+unsigned int	ft_get_len(long n)
 {
-	int		u;
-	int		n_itoa;
-	char	*nstr;
-	const char	*c;
+	unsigned int	len;
 
-	nstr = malloc(sizeof(char) * (sizeof(n) + 1));
-	if (n >= 0)
+	len = 0;
+	if (n < 0)
 	{
-		if (n < 10)
-			ft_strcat(nstr, (n + "0"));
-			//nstr = nstr + (n + '0');
-		if (n >= 10)
-		{
-			n_itoa = n / 10;
-			ft_itoa(n_itoa);
-			u = n % 10;
-			c = u + "0";
-			ft_memmove(nstr, c, ft_strlen(c));
-		}
+		n *= -1;
+		len++;
+	}		
+	if (n == 0)
+		return (1);
+	while (n >= 1)
+	{
+		n /= 10;
+		len++;
 	}
-	else
-	{
-		//nstr = nstr + '-';
-		ft_strcat(nstr, "-");
-		n = n * -1;
-		ft_itoa(n);
-	}	
-	return (nstr);
+	return (len);
 }
 
-int	main(void)
+char	*ft_itoa(int n)
 {
-	unsigned int n;
-	
-	n = 352;
-	
-	/*printf("%d\t", n /10);
-	printf("%d\n", n %10);*/
-	
-	printf("%s\n", ft_itoa(n));
+	long	len;
+	long	nn;
+	char	*result;
+
+	len = ft_get_len(n);
+	nn = n;
+	result = ft_calloc(len + 1, sizeof(char));
+	if (!result)
+		return (NULL);
+	if (nn == 0)
+	{
+		result[0] = '0';
+		return (result);
+	}		
+	if (nn < 0)
+		nn = nn * -1;
+	while (len--)
+	{
+		result[len] = (nn % 10) + '0';
+		nn /= 10;
+	}
+	if (result[0] == '0')
+		result[0] = '-';
+	return (result);
 }

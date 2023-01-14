@@ -6,7 +6,7 @@
 #    By: karlewis <karlewis@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/06 14:33:16 by karlewis          #+#    #+#              #
-#    Updated: 2023/01/06 17:42:38 by karlewis         ###   ########.fr        #
+#    Updated: 2023/01/14 15:30:40 by karlewis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,13 @@ UTILS = ft_isalpha.c\
 		ft_strstr.c\
 		ft_strtrim.c\
 		ft_split.c\
-		ft_atoi.c
+		ft_itoa.c\
+		ft_strmapi.c\
+		ft_striteri.c\
+		ft_putchar_fd.c\
+		ft_putstr_fd.c\
+		ft_putendl_fd.c\
+		ft_putnbr_fd.c
 
 INCLUDE = libft.h
 OBJS = $(UTILS:.c=.o)
