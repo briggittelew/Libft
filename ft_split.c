@@ -37,12 +37,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (&*arr);
 }
-
-/**
-int main (void){
-	char *s = "lorem ipsum dolor sit amet, consectetur";
-	char c = ' ';
-
-	printf("%s", ft_split(s, c));
-	return (0);
-}*/
